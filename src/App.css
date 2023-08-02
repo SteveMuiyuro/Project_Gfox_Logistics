@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff7ed;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+}
+
+.container {
+  /* max-width: 470px; */
+}
+
+.container > header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+  padding: 1em;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.header-elements,
+.site-logo {
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.header-elements {
+  background-color: #fb923c;
+  color: inherit;
+  border-radius: 0.3em;
+  transition: backgroud-color 0.3ms ease-in;
+}
+
+.header-elements:hover {
+  background-color: #18181b;
+  color: #fff7ed;
+}
+a {
+  text-decoration: none;
+  color: #18181b;
+}
+
+.main-container {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("/src/assets/HomePageTruck.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 350px;
+  color: white;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  border-radius: 0.3em;
+}
+
+.details > p {
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ffedd5;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+.checkout-btn {
+  background-color: #fb923c;
+  color: inherit;
+  padding: 1em 1.2em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.3ms ease-in;
+  font-weight: bold;
+  color: inherit;
+}
+
+.checkout-btn:hover {
+  background-color: #18181b;
+  color: #ffedd5;
+}
+
+.photo {
+  max-width: 21em;
+  max-height: 15em;
+  border-radius: 0.3em;
+}
+
+.second-element {
+  display: flex;
+  gap: 0.5em;
+}
+
+.second-element > p {
+  text-align: start;
+}
+
+hr {
+  border: 3px solid #fb923c;
+}
+
+.truck-elements {
+  display: grid;
+  margin-top: 2em;
+  padding: 1em 1.5em;
+  justify-content: center;
+}
+
+.truck-image {
+  max-width: 200px;
+  max-height: 400px;
+  width: auto;
+  border-radius: 0.3em;
+}
+
+.type {
+  background-color: #fb923c;
+  color: #ffedd5;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  transition: background-color 0.3ms ease-in;
+}
+
+.type:hover {
+  background-color: #18181b;
+  color: #ffedd5;
+}
+
+.truck {
+  margin-bottom: 3em;
+  cursor: pointer;
+}
+
+.trucks-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+.about {
+  padding: 1.5em;
+}
+
+.trucks-heading > h2 {
+  text-align: center;
+}
+
+.truck-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.truck-details > img {
+  max-width: 100%;
+  margin-bottom: 1em;
+}
+
+.truck-details .description {
+  text-align: center;
+}
+
+.hire-btn {
+  margin-top: 3em;
+  outline: none;
+  padding: 1em 4em;
+  border-radius: 0.3em;
+  background-color: #fb923c;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  color: #ffedd5;
+  transition: background-color 0.3ms ease-in;
+}
+
+.hire-btn:hover {
+  background-color: #18181b;
+  color: #ffedd5;
+}
