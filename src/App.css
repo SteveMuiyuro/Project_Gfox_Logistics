@@ -8,14 +8,9 @@ body {
   padding: 0;
   background-color: #fff7ed;
   font-family: "Inter", sans-serif;
-  height: 100vh;
 }
 
-.container {
-  /* max-width: 470px; */
-}
-
-.container > header {
+header {
   display: flex;
   justify-content: space-between;
   margin-top: 0.5em;
@@ -57,11 +52,10 @@ a {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  min-height: 350px;
+  height: 722px;
   color: white;
   padding: 0.5em 1em;
   margin-top: 1em;
-  border-radius: 0.3em;
 }
 
 .details > p {
@@ -75,9 +69,11 @@ a {
 .details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+}
+
+.details > p {
+  margin-top: 2em;
 }
 .checkout-btn {
   background-color: #fb923c;
@@ -88,6 +84,7 @@ a {
   transition: background-color 0.3ms ease-in;
   font-weight: bold;
   color: inherit;
+  margin-top: 30.5em;
 }
 
 .checkout-btn:hover {
@@ -119,6 +116,7 @@ hr {
   margin-top: 2em;
   padding: 1em 1.5em;
   justify-content: center;
+  max-width: 350px;
 }
 
 .truck-image {
@@ -194,4 +192,32 @@ hr {
 .hire-btn:hover {
   background-color: #18181b;
   color: #ffedd5;
+}
+
+.host-navs a {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  text-decoration: none;
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.host-navs a:hover {
+  text-decoration: underline;
+  font-weight: 600;
+  color: #161616;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  background-color: #161616;
+  color: #ffedd5;
+  text-align: center;
+  margin-top: auto;
+  padding: 0.5em;
 }
