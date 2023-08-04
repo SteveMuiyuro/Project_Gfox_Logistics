@@ -1,7 +1,7 @@
 import React from "react";
-import { Outlet, NavLink } from "react-router-dom";
-
-export default function HostLayout() {
+import { NavLink, Outlet } from "react-router-dom";
+import YourTruckDetails from "../host/YourTruckDetails";
+export default function TruckDetailsLayout() {
   const isActiveStyles = {
     color: "#fb923c",
     fontWeight: "bold",
@@ -9,31 +9,25 @@ export default function HostLayout() {
   };
   return (
     <>
-      <nav className="host-navs">
+      <nav className="truck-navigation">
         <NavLink
           to="."
           style={({ isActive }) => (isActive ? isActiveStyles : null)}
           end
         >
-          Dashboard
+          Details
         </NavLink>
         <NavLink
-          to="income"
+          to="pricing"
           style={({ isActive }) => (isActive ? isActiveStyles : null)}
         >
-          Income
+          Pricing
         </NavLink>
         <NavLink
-          to="trucks"
+          to="photos"
           style={({ isActive }) => (isActive ? isActiveStyles : null)}
         >
-          Trucks
-        </NavLink>
-        <NavLink
-          to="reviews"
-          style={({ isActive }) => (isActive ? isActiveStyles : null)}
-        >
-          Reviews
+          Photos
         </NavLink>
       </nav>
       <Outlet />

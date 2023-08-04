@@ -11,6 +11,11 @@ import Income from "./host/Income";
 import Reviews from "./host/Reviews";
 import "./server";
 import HostLayout from "./components/HostLayout ";
+import YourTrucks from "./host/YourTrucks";
+import YourTruckDetails from "./host/YourTruckDetails";
+import TruckDetailsLayout from "./components/TruckDetailsLayout";
+import Pricing from "./host/Pricing";
+import Photos from "./host/Photos";
 
 function App() {
   return (
@@ -25,6 +30,12 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
             <Route path="reviews" element={<Reviews />} />
+            <Route path="trucks" element={<YourTrucks />} />
+            <Route path="trucks/:id" element={<TruckDetailsLayout />}>
+              <Route index element={<YourTruckDetails />} />
+              <Route path="pricing" element={<Pricing />} />
+              <Route path="photos" element={<Photos />} />
+            </Route>
           </Route>
           <Route />
         </Route>
