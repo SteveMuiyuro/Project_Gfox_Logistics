@@ -1,31 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import React from "react";
+import { useOutletContext, Link } from "react-router-dom";
 export default function YourTruckDetails() {
-  const params = useParams();
+  const { truck } = useOutletContext();
 
-  const [truck, setTruck] = useState(null);
-  useEffect(() => {
-    fetch(`/api/host/trucks/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setTruck(data.trucks));
-  }, [params.id]);
-
-  console.log(truck);
   return truck ? (
-    <div className="host-truck-container">
-      <div className="host-truck">
-        <img src={truck.imageUrl} />
-        <div className="host-truck-details">
-          <p className="host-truck-type">{truck.type}</p>
-          <p>{truck.name}</p>
-          <p>
-            {truck.price?.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
-          </p>
-        </div>
-      </div>
+    <>
+      <Link to=".." relative="path" className="back-button">
+        &larr; <span>Back to all trucks</span>
+      </Link>
+
       <div className="host-truck-details">
         <p>
           <span>Name: </span>
@@ -44,7 +27,7 @@ export default function YourTruckDetails() {
           {truck.load}
         </p>
       </div>
-    </div>
+    </>
   ) : (
     <p>Loading...</p>
   );

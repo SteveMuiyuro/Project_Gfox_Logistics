@@ -298,11 +298,63 @@ hr {
   margin: 0.5em;
 }
 
-span {
+span,
+.price {
   font-weight: bold;
 }
 
 .host-truck-container {
   display: flex;
   flex-direction: column;
+}
+
+.back-button {
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.pricing,
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  max-width: auto;
+  max-height: 200px;
+  border-radius: 0.3em;
+  padding: 1em;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.trailer-filter,
+.truck-filter {
+  background-color: #fb923c;
+  color: #ffedd5;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  border: none;
+}
+
+.trailer-filter:hover,
+.truck-filter:hover {
+  background-color: #161616;
+  color: #ffedd5;
+}
+
+.clear-filter {
+  padding: 0.5em 1em;
+  font-style: italic;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.clear-filter:hover {
+  text-decoration: underline;
 }

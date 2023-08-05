@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import { useOutletContext } from "react-router-dom";
 
 export default function Photos() {
-  return (
-        <h1>Photos Goes here</h1>
-  )
+  const { truck } = useOutletContext();
+
+  return truck ? (
+    <div className="image-container">
+      <img src={truck.imageUrl} className="image" />
+    </div>
+  ) : (
+    <p>Loading...</p>
+  );
 }
