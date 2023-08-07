@@ -358,3 +358,30 @@ span,
 .clear-filter:hover {
   text-decoration: underline;
 }
+
+.selected {
+  background-color: #161616;
+  color: #ffedd5;
+}
+
+.error-page {
+  display: grid;
+  justify-content: center;
+  padding: 1.5em;
+}
+
+.back-to-home-btn {
+  background-color: #fb923c;
+  border: none;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+
+.back-to-home-btn:hover {
+  background-color: #161616;
+  color: #ffedd5;
+}

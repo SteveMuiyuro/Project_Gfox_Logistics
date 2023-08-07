@@ -19,7 +19,10 @@ export default function Trucks() {
 
   const truckElements = displayTrucks.map((truck) => (
     <div key={truck.id} className="truck">
-      <Link to={`/trucks/${truck.id}`}>
+      <Link
+        to={truck.id}
+        state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
+      >
         <img src={truck.imageUrl} className="truck-image" />
         <div>
           <h3>{truck.name}</h3>
@@ -37,25 +40,43 @@ export default function Trucks() {
     </div>
   ));
 
+  function handleSearchParams(key, value) {
+    setSearchParams((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
+  }
+  console.log(searchParams.toString());
   return (
     <div className="trucks-heading">
       <h2>Explore our variety of trucks, and make a booking with us today!</h2>
       <div className="filters">
         <button
-          onClick={() => setSearchParams({ type: "Trailer" })}
-          className="trailer-filter"
+          onClick={() => handleSearchParams("type", "Trailer")}
+          className={`trailer-filter ${
+            typeFilter === "Trailer" ? "selected" : ""
+          }`}
         >
-          Trailer
+          Trailers
         </button>
         <button
-          onClick={() => setSearchParams({ type: "Truck" })}
-          className="truck-filter"
+          onClick={() => handleSearchParams("type", "Truck")}
+          className={`truck-filter ${typeFilter === "Truck" ? "selected" : ""}`}
         >
-          Truck
+          Trucks
         </button>
-        <button onClick={() => setSearchParams({})} className="clear-filter">
-          Clear Filters
-        </button>
+        {typeFilter ? (
+          <button
+            onClick={() => handleSearchParams("type", null)}
+            className="clear-filter"
+          >
+            Clear Filters
+          </button>
+        ) : null}
       </div>
       <div className="truck-elements">{truckElements}</div>
     </div>

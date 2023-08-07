@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 export default function TruckDetails() {
   const [truckData, setTruckData] = useState([]);
   const params = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     fetch(`/api/trucks/${params.id}`)
@@ -11,8 +12,14 @@ export default function TruckDetails() {
       .then((data) => setTruckData(data.trucks));
   }, [params.id]);
 
+  const search = location.state?.search || "";
+
   return (
     <div className="truck-details">
+      <Link to={`..${search}`} relative="path" className="back-button">
+        &larr; <span>{`Back to ${location.state?.type || "all trucks"}`}</span>
+      </Link>
+
       {truckData ? (
         <>
           <img src={truckData.imageUrl} className="truck-image" />

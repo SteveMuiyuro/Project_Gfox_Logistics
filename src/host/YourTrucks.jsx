@@ -11,7 +11,7 @@ export default function YourTrucks() {
   }, []);
 
   const trucksElements = trucks?.map((truck) => (
-    <Link to={`/host/trucks/${truck.id}`} key={truck.id}>
+    <Link to={truck.id} key={truck.id}>
       <div className="own-truck" key={truck.id}>
         <img src={truck.imageUrl} className="truck-image" />
         <div>
