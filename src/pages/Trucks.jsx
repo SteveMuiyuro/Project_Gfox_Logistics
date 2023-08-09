@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getTrucks } from "../../api";
 
 export default function Trucks() {
   const [trucks, setTrucks] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
-    fetch("api/trucks")
-      .then((res) => res.json())
-      .then((data) => setTrucks(data.trucks));
+    async function fetchTrucks() {
+      setLoading(true);
+      const data = await getTrucks();
+      setTrucks(data);
+      setLoading(false);
+    }
+    fetchTrucks();
   }, []);
 
   const displayTrucks = typeFilter
@@ -50,7 +56,9 @@ export default function Trucks() {
       return prevParams;
     });
   }
-  console.log(searchParams.toString());
+
+  loading ? <h2>Loading Trucks...</h2> : null;
+
   return (
     <div className="trucks-heading">
       <h2>Explore our variety of trucks, and make a booking with us today!</h2>

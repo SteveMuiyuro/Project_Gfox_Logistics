@@ -7,9 +7,20 @@ export default function TruckDetails() {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`/api/trucks/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setTruckData(data.trucks));
+    async function truckDetails() {
+      const res = await fetch(`/api/trucks/${params.id}`);
+      if (!res.ok) {
+        throw {
+          message: "Truck not found",
+          statusText: res.statusText,
+          status: res.status,
+        };
+      }
+      const data = await res.json();
+      setTruckData(data.trucks);
+    }
+
+    truckDetails();
   }, [params.id]);
 
   const search = location.state?.search || "";

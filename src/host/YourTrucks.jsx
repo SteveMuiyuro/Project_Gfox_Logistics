@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { fetchTruck } from "../../api";
 
 export default function YourTrucks() {
   const [trucks, setTrucks] = useState();
 
   useEffect(() => {
-    fetch("/api/host/trucks")
-      .then((res) => res.json())
-      .then((data) => setTrucks(data.trucks));
+    async function loadTrucks() {
+      const data = await fetchTruck();
+      setTrucks(data);
+    }
+    loadTrucks();
   }, []);
 
   const trucksElements = trucks?.map((truck) => (

@@ -35,6 +35,14 @@ export default function Header() {
         >
           Trucks
         </NavLink>
+
+        <NavLink
+          to="/login"
+          className="header-elements"
+          style={({ isActive }) => (isActive ? isActiveStyles : null)}
+        >
+          Login
+        </NavLink>
       </nav>
     </header>
   );
