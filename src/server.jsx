@@ -48,7 +48,7 @@ createServer({
       name: "Flatbed",
       price: 1500,
       description:
-        " A type of commercial vehicle with an open, flat platform on its back, free from sides or a roof. This design allows for the easy loading, transportation, and unloading of various goods, making flatbed trucks a versatile and essential component of the transportation industry.",
+        "A type of commercial vehicle with an open, flat platform on its back, free from sides or a roof. This design allows for the easy loading, transportation, and unloading of various goods, making flatbed trucks a versatile and essential component of the transportation industry.",
       imageUrl: "/src/assets/Flatbed.jpg",
       type: "Trailer",
       load: 2200,

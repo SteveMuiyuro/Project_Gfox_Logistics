@@ -32,6 +32,7 @@ export default function HostLayout() {
         <NavLink
           to="reviews"
           style={({ isActive }) => (isActive ? isActiveStyles : null)}
+          className="reviews"
         >
           Reviews
         </NavLink>

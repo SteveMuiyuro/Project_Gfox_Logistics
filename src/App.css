@@ -205,8 +205,9 @@ hr {
 }
 
 .host-navs {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 .host-navs a:hover {
@@ -355,6 +356,7 @@ span,
   border: none;
   outline: none;
   background-color: transparent;
+  color: #4d4d4d;
 }
 
 .clear-filter:hover {
@@ -426,4 +428,60 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.loggedout {
+  display: flex;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5em;
+  margin-top: -2em;
+  margin-bottom: -1.5em;
+}
+
+.reviews-container > h2 p {
+  margin: 0.5em;
+}
+
+.review,
+.income-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.review {
+  margin-top: -2em;
+}
+
+.all-reviews,
+.all-income {
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.income-container > .price {
+  font-style: italic;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.dashboard-image {
+  width: 90%;
+  height: 200px;
+  border-radius: 0.3em;
+}
+
+.all-dashboard-items {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

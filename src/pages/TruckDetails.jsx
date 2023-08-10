@@ -1,54 +1,58 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 
+import { getTruck } from "../../api";
+
 export default function TruckDetails() {
   const [truckData, setTruckData] = useState([]);
-  const params = useParams();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const { id } = useParams();
   const location = useLocation();
 
   useEffect(() => {
     async function truckDetails() {
-      const res = await fetch(`/api/trucks/${params.id}`);
-      if (!res.ok) {
-        throw {
-          message: "Truck not found",
-          statusText: res.statusText,
-          status: res.status,
-        };
+      setLoading(true);
+      try {
+        const data = await getTruck(id);
+        setTruckData(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
       }
-      const data = await res.json();
-      setTruckData(data.trucks);
     }
-
     truckDetails();
-  }, [params.id]);
+  }, [id]);
 
   const search = location.state?.search || "";
 
+  if (loading) {
+    return <p>Loading Data...</p>;
+  }
+
+  if (error) {
+    <h2>There was an error whiel fetching data:{error.message}</h2>;
+  }
   return (
     <div className="truck-details">
       <Link to={`..${search}`} relative="path" className="back-button">
         &larr; <span>{`Back to ${location.state?.type || "all trucks"}`}</span>
       </Link>
 
-      {truckData ? (
-        <>
-          <img src={truckData.imageUrl} className="truck-image" />
-          <p className="description">{truckData.description}</p>
-          <p>
-            Price/Day:
-            {truckData.price?.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
-          </p>
-          <p>Load Capacity: {truckData.load} Tonnes</p>
-          <i className="type">{truckData.type}</i>
-          <button className="hire-btn">Hire Truck</button>
-        </>
-      ) : (
-        <p>Loading Data...</p>
-      )}
+      <img src={truckData.imageUrl} className="truck-image" />
+      <p className="description">{truckData.description}</p>
+      <p>
+        Price/Day:
+        {truckData.price?.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        })}
+      </p>
+      <p>Load Capacity: {truckData.load} Tonnes</p>
+      <i className="type">{truckData.type}</i>
+      <button className="hire-btn">Hire Truck</button>
     </div>
   );
 }
