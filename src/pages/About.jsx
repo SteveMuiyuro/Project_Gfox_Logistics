@@ -10,7 +10,7 @@ export default function About() {
       </p>
       <hr />
       <div className="about-container">
-        <img src="./src/assets/PicOne.jpg" className="photo"></img>
+        <img src="./assets/PicOne.jpg" className="photo"></img>
 
         <p>
           At GFox Express, we understand that every business is unique, which is
@@ -27,7 +27,7 @@ export default function About() {
           cargo's journey from start to finish, giving you peace of mind and
           complete control.
         </p>
-        <img src="./src/assets/PicTwo.jpg" className="photo"></img>
+        <img src="./assets/PicTwo.jpg" className="photo"></img>
       </div>
       <hr />
       <div>
@@ -37,7 +37,7 @@ export default function About() {
           more. We take pride in our seamless logistics solutions that have
           helped businesses thrive and grow.
         </p>
-        <img src="./src/assets/PicThree.jpg" className="photo"></img>
+        <img src="./assets/PicThree.jpg" className="photo"></img>
       </div>
       <hr />
       <div>
