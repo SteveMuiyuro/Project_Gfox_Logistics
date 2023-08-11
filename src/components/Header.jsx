@@ -7,13 +7,12 @@ export default function Header() {
   const isActiveStyles = {
     backgroundColor: "#18181b",
     color: "#ffedd5",
+    borderRadius: "0.3em",
   };
 
   const logoutStyles = {
     display: logout && "none",
   };
-
-  const loggedin = localStorage.getItem("loggedin");
 
   function logoutFun() {
     localStorage.removeItem("loggedin");
@@ -21,50 +20,52 @@ export default function Header() {
   }
 
   return (
-    <header>
-      <Link to="/" className="site-logo">
-        GFox
-      </Link>
+    <section className="header">
+      <header>
+        <Link to="/" className="site-logo">
+          GFox
+        </Link>
 
-      <nav className="sub-container">
-        <NavLink
-          to="/host"
-          className="header-elements"
-          style={({ isActive }) => (isActive ? isActiveStyles : null)}
-        >
-          Host
-        </NavLink>
-        <NavLink
-          to="/about"
-          className="header-elements"
-          style={({ isActive }) => (isActive ? isActiveStyles : null)}
-        >
-          About
-        </NavLink>
-        <NavLink
-          to="/trucks"
-          className="header-elements"
-          style={({ isActive }) => (isActive ? isActiveStyles : null)}
-        >
-          Trucks
-        </NavLink>
-
-        {!logout && (
-          <button className="header-elements" onClick={logoutFun}>
-            Logout
-          </button>
-        )}
-
-        {logout && (
+        <nav className="sub-container">
           <NavLink
-            to="/login"
+            to="/host"
             className="header-elements"
             style={({ isActive }) => (isActive ? isActiveStyles : null)}
           >
-            Login
+            Host
           </NavLink>
-        )}
-      </nav>
-    </header>
+          <NavLink
+            to="/about"
+            className="header-elements"
+            style={({ isActive }) => (isActive ? isActiveStyles : null)}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/trucks"
+            className="header-elements"
+            style={({ isActive }) => (isActive ? isActiveStyles : null)}
+          >
+            Trucks
+          </NavLink>
+
+          {!logout && (
+            <button className="header-elements" onClick={logoutFun}>
+              Logout
+            </button>
+          )}
+
+          {logout && (
+            <NavLink
+              to="/login"
+              className="header-elements"
+              style={({ isActive }) => (isActive ? isActiveStyles : null)}
+            >
+              Login
+            </NavLink>
+          )}
+        </nav>
+      </header>
+    </section>
   );
 }

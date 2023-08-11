@@ -32,9 +32,11 @@ export default function YourTrucks() {
   ));
 
   return (
-    <div className="own-trucks">
+    <div className="listed-own-trucks">
       <h1>Your Listed Trucks</h1>
-      {trucks ? trucksElements : <p>Loading...</p>}
+      <div className="own-trucks">
+        {trucks ? trucksElements : <p>Loading...</p>}
+      </div>
     </div>
   );
 }

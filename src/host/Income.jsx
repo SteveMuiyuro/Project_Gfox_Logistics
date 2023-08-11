@@ -33,7 +33,8 @@ export default function Income() {
   const elements = trucks?.map((truck) => (
     <>
       <div className="income-container">
-        <h2>Name:{truck.name}</h2>
+        <img src={truck.imageUrl} className="photo" />
+        <h2>{truck.name}</h2>
         <p>Accumulated Income To Date: </p>
         <p className="price">
           {truck.TotalIncome.toLocaleString("en-US", {

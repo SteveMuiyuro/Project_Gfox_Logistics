@@ -21,26 +21,27 @@ nav {
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
-
-  gap: 20px;
+  gap: 0.3em;
 }
 
 .header-elements,
 .site-logo {
-  padding: 0.5em 1em;
+  padding: 0.5em 0.8em;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 2em;
 }
 
 .header-elements {
-  background-color: #fb923c;
   color: inherit;
-  border-radius: 0.3em;
-  transition: backgroud-color 0.3ms ease-in;
 }
 
 .header-elements:hover {
   background-color: #18181b;
   color: #fff7ed;
+  border-radius: 0.3em;
 }
 a {
   text-decoration: none;
@@ -483,4 +484,216 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.listed-own-trucks {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*Media Querries*/
+
+@media (min-width: 820px) and (max-width: 1180px) {
+  .truck-elements {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+  }
+
+  .host-navs {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: -2em;
+  }
+
+  .all-dashboard-items {
+    padding: 3em;
+  }
+
+  .dashboard-image {
+    height: auto;
+  }
+
+  .all-income {
+    display: flex;
+    justify-content: center;
+  }
+
+  .own-trucks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1em;
+  }
+
+  .listed-own-trucks > h1 {
+    margin-top: 2em;
+  }
+
+  .element {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5em;
+  }
+
+  .about {
+    display: grid;
+    gap: 1em;
+    padding: 2em;
+  }
+
+  .main-container {
+    height: 910px;
+  }
+
+  .checkout-btn {
+    margin-top: 32em;
+  }
+
+  .host-truck {
+    display: flex;
+    margin-top: 5em;
+  }
+
+  .truck-navigation,
+  .host-truck-details {
+    padding: 0 1.5em;
+  }
+  .truck-navigation {
+    gap: 3em;
+  }
+
+  .all-income {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+  }
+
+  .all-income > hr {
+    border: none;
+  }
+  .image-container {
+    justify-content: flex-start;
+    margin-left: 0.5em;
+  }
+
+  .all-reviews {
+    display: flex;
+  }
+
+  .pricing {
+    justify-content: flex-start;
+    padding: 0 1.5em;
+  }
+
+  .back-button {
+    padding: 1em 1.5em;
+  }
+}
+
+@media (min-width: 1181px) {
+  .main-content {
+    max-width: 70%;
+    margin: 0 auto;
+    height: 100vh;
+  }
+
+  header {
+    max-width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 11em;
+  }
+  .checkout-btn {
+    margin-top: 24em;
+  }
+
+  .truck-elements {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2em;
+  }
+  .element {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2em;
+  }
+
+  .element > .photo {
+    height: 20em;
+    width: auto;
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+  }
+  .about > .first-paragraph {
+    grid-column: 1/-1;
+    text-align: center;
+  }
+
+  .dashboard-image {
+    height: 15em;
+    width: 20em;
+  }
+
+  .all-dashboard-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+  .all-income {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .income-container > .photo {
+    height: 15em;
+    width: 20em;
+  }
+
+  .listed-own-trucks > .own-trucks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1em;
+  }
+
+  .truck-image {
+    height: 10em;
+  }
+
+  .all-reviews,
+  .host-truck {
+    display: flex;
+  }
+
+  .all-reviews {
+    gap: 1.5em;
+  }
+  .host-truck {
+    gap: 0.5em;
+  }
+  .pricing {
+    justify-content: flex-start;
+    margin-left: 0.8em;
+  }
+  .image-container {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .truck-navigation {
+    gap: 3em;
+    margin-left: 0.8em;
+  }
+
+  .truck-details > .truck-image {
+    height: auto;
+  }
+  .truck-details {
+    margin-top: -2.5em;
+  }
 }
