@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
 export default function Header() {
-  const [logout, setLogout] = React.useState(false);
+  const [logout, setLogout] = React.useState(true);
 
   const isActiveStyles = {
     backgroundColor: "#18181b",
@@ -10,13 +10,8 @@ export default function Header() {
     borderRadius: "0.3em",
   };
 
-  const logoutStyles = {
-    display: logout && "none",
-  };
-
   function logoutFun() {
-    localStorage.removeItem("loggedin");
-    setLogout(true);
+    setLogout(localStorage.removeItem("loggedin"));
   }
 
   return (
@@ -32,7 +27,7 @@ export default function Header() {
             className="header-elements"
             style={({ isActive }) => (isActive ? isActiveStyles : null)}
           >
-            Host
+            Login
           </NavLink>
           <NavLink
             to="/about"
@@ -50,12 +45,12 @@ export default function Header() {
           </NavLink>
 
           {!logout && (
-            <button className="header-elements" onClick={logoutFun}>
+            <button className="logout-btn" onClick={logoutFun}>
               Logout
             </button>
           )}
 
-          {logout && (
+          {/* {logout && (
             <NavLink
               to="/login"
               className="header-elements"
@@ -63,7 +58,7 @@ export default function Header() {
             >
               Login
             </NavLink>
-          )}
+          )} */}
         </nav>
       </header>
     </section>

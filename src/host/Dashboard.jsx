@@ -29,7 +29,7 @@ export default function Dashboard() {
   }
 
   const elements = trucks?.map((truck) => (
-    <div className="dashboard-container">
+    <div className="dashboard-container" key={truck.id}>
       <div>
         <h2>{truck.name}</h2>
         <img src={truck.imageUrl} className="dashboard-image" />
@@ -38,7 +38,7 @@ export default function Dashboard() {
       <div>
         <h3>Reviews</h3>
         {truck.reviews?.map((review) => (
-          <p>{review}</p>
+          <p key={review}>{review}</p>
         ))}
       </div>
 
