@@ -27,7 +27,7 @@ export default function Header() {
             className="header-elements"
             style={({ isActive }) => (isActive ? isActiveStyles : null)}
           >
-            Login
+            Host
           </NavLink>
           <NavLink
             to="/about"
