@@ -776,3 +776,8 @@ button {
 .register-link {
   text-decoration: underline;
 }
+.password-check {
+  color: #fb923c;
+  margin: 0;
+  font-size: small;
+}

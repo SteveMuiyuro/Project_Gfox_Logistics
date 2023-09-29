@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "firebase": "^10.1.0",
+    "firebase": "^10.4.0",
     "mileage": "^1.0.0",
     "miragejs": "^0.1.47",
     "npm": "^9.8.1",
