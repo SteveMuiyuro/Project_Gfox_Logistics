@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { loginUser } from "../../api";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = React.useState({
@@ -59,6 +60,10 @@ export default function Login() {
           value={formData.password}
         />
         <button disabled={status === "submitting"}>Login</button>
+        <div className="registration-container">
+        <p>Don't Have an Account?</p>
+         <Link to="/" className="register-link">Register</Link>
+        </div>
       </form>
     </div>
   );

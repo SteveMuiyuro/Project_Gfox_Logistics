@@ -31,6 +31,12 @@ nav {
   align-items: center;
 }
 
+.logo {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+}
+
 .logout-btn {
   align-self: center;
   background-color: #161616;
@@ -70,11 +76,10 @@ a {
 }
 
 .details > p {
-  margin: 0;
   text-align: center;
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #ffedd5;
+  font-size: 1.3rem;
+  color: #fb923c;
 }
 
 .details {
@@ -509,6 +514,9 @@ button {
     gap: 2em;
   }
 
+  .login-container {
+    margin-top: 10em;
+  }
   .host-navs {
     display: flex;
     justify-content: center;
@@ -599,6 +607,15 @@ button {
   .back-button {
     padding: 1em 1.5em;
   }
+
+  .details {
+    display: block;
+  }
+
+  .form-register {
+    margin-top: 10em;
+    margin-right: -34em;
+  }
 }
 
 @media (min-width: 1181px) {
@@ -608,6 +625,13 @@ button {
     height: 100vh;
   }
 
+  .details {
+    display: block;
+  }
+
+  .form-register {
+    margin-right: -45em;
+  }
   header {
     max-width: 70%;
     display: flex;
@@ -707,4 +731,48 @@ button {
   .header-elements {
     margin-left: 1em;
   }
+}
+
+.form {
+  display: flex;
+  gap: 0.5em;
+  max-width: 20em;
+}
+
+::placeholder {
+  color: #fb923c;
+}
+.form > input {
+  border: 1px solid #fb923c;
+  outline: none;
+  background: transparent;
+  color: #fb923c;
+  font-weight: 600;
+}
+
+.form-register {
+  display: flex;
+  flex-direction: column;
+  top: 20em;
+  right: 20em;
+  align-items: center;
+}
+
+.form-register > p {
+  color: #fb923c;
+  font-weight: bold;
+  margin-top: 5em;
+}
+
+.registration-container {
+  display: flex;
+  align-items: center;
+}
+
+.registration-container > p {
+  padding-right: 0.5em;
+}
+
+.register-link {
+  text-decoration: underline;
 }

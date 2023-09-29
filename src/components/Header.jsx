@@ -18,7 +18,7 @@ export default function Header() {
     <section className="header">
       <header>
         <Link to="/" className="site-logo">
-          GFox
+          <img src="./public/assets/gfox_logo.png" alt="" className="logo" />
         </Link>
 
         <nav className="sub-container">
@@ -27,7 +27,7 @@ export default function Header() {
             className="header-elements"
             style={({ isActive }) => (isActive ? isActiveStyles : null)}
           >
-            Host
+            Post a Truck
           </NavLink>
           <NavLink
             to="/about"
@@ -41,7 +41,14 @@ export default function Header() {
             className="header-elements"
             style={({ isActive }) => (isActive ? isActiveStyles : null)}
           >
-            Trucks
+            Truck Listings
+          </NavLink>
+          <NavLink
+            to="/login"
+            className="header-elements"
+            style={({ isActive }) => (isActive ? isActiveStyles : null)}
+          >
+            Login
           </NavLink>
 
           {!logout && (

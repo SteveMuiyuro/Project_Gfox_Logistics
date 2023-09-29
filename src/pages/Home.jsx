@@ -6,13 +6,20 @@ export default function Home() {
     <div className="main-container">
       <div className="details">
         <p>
-          Want your products to scale without breaking the bank?
-          <br />
-          Gfox Logistics got you.
+          Scale your products with Gfox Logistics. Hire our Trucks, and Trailers
+          today!
         </p>
-        <Link to="/trucks" className="checkout-btn">
-          Checkout our Trucks
-        </Link>
+        <div className="form-register">
+          <p>Don't Have an Account?</p>
+          <form action="" method="post" className="form">
+            <input type="text" placeholder="Firstname" />
+            <input type="text" placeholder="Lastname" />
+            <input type="email" placeholder="Email" />
+            <input type="text" placeholder="Password" />
+            <input type="text" placeholder="Confirm Password" />
+            <button className="register">Register</button>
+          </form>
+        </div>
       </div>
     </div>
   );

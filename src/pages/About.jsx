@@ -44,9 +44,9 @@ export default function About() {
         <img src="./assets/Hydrovac.jpg" className="photo"></img>
         <p>
           Whether you're moving goods across the city or venturing nationwide,
-          let GFox Express be your trusted logistics partner. Contact us today
-          and experience logistics solutions on wheels like never before. Your
-          cargo's journey is our commitment!
+          let GFox Express be your trusted logistics partner. Experience
+          logistics solutions on wheels like never before. Your cargo's journey
+          is our commitment!
         </p>
       </div>
     </div>

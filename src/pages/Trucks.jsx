@@ -61,7 +61,7 @@ export default function Trucks() {
 
   return (
     <div className="trucks-heading">
-      <h2>Explore our variety of trucks, and make a booking with us today!</h2>
+      <h2>Explore and make a booking with us today!</h2>
       <div className="filters">
         <button
           onClick={() => handleSearchParams("type", "Trailer")}
