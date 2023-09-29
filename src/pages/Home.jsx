@@ -95,7 +95,7 @@ export default function Home() {
               required
             />
             {!passwordCheckOkay ? (
-              <p className="password-check">Password does not Much</p>
+              <p className="password-check">Password Doesn't Much</p>
             ) : (
               ""
             )}
