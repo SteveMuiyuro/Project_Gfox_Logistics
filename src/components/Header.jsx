@@ -18,7 +18,7 @@ export default function Header() {
     <section className="header">
       <header>
         <Link to="/" className="site-logo">
-          <img src="./public/assets/gfox_logo.png" alt="" className="logo" />
+          <img src="/assets/gfox_logo.png" alt="" className="logo" />
         </Link>
 
         <nav className="sub-container">
