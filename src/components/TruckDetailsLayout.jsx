@@ -1,6 +1,6 @@
-import Reac, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Outlet, useParams } from "react-router-dom";
-import { getTruck } from "../../api";
+import trucksFinder from "../../trucksFinder";
 
 export default function TruckDetailsLayout() {
   const [truck, setTruck] = useState(null);
@@ -12,8 +12,8 @@ export default function TruckDetailsLayout() {
     async function fetchTrucks() {
       setLoading(true);
       try {
-        const data = await getTruck(id);
-        setTruck(data);
+        const data = await trucksFinder.get(`/${id}`);
+        setTruck(data.data.truckInfo[0]);
       } catch (err) {
         setError(err);
       } finally {
@@ -41,7 +41,7 @@ export default function TruckDetailsLayout() {
     <>
       {truck && (
         <div className="host-truck">
-          <img src={truck.imageUrl} />
+          <img src={truck.truck_image} />
           <div className="host-truck-details">
             <p className="host-truck-type">{truck.type}</p>
             <p>{truck.name}</p>

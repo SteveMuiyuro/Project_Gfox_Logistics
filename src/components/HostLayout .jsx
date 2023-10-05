@@ -36,6 +36,13 @@ export default function HostLayout() {
         >
           Reviews
         </NavLink>
+        {/* <NavLink
+          to="/lk"
+          style={({ isActive }) => (isActive ? isActiveStyles : null)}
+          className="reviews"
+        >
+          Post Truck
+        </NavLink> */}
       </nav>
       <Outlet />
     </>

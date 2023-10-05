@@ -9,7 +9,6 @@ import Layout from "./components/Layout";
 import Dashboard from "./host/Dashboard";
 import Income from "./host/Income";
 import Reviews from "./host/Reviews";
-import "./server";
 import HostLayout from "./components/HostLayout ";
 import YourTrucks from "./host/YourTrucks";
 import YourTruckDetails from "./host/YourTruckDetails";
@@ -30,21 +29,21 @@ function App() {
           <Route path="trucks" element={<Trucks />} />
           <Route path="trucks/:id" element={<TruckDetails />} />
           <Route path="login" element={<Login />} />
-          <Route element={<Authenticated />}>
-            <Route path="host" element={<HostLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path="income" element={<Income />} />
-              <Route path="reviews" element={<Reviews />} />
-              <Route path="trucks" element={<YourTrucks />} />
-              <Route path="trucks/:id" element={<TruckDetailsLayout />}>
-                <Route index element={<YourTruckDetails />} />
-                <Route path="pricing" element={<Pricing />} />
-                <Route path="photos" element={<Photos />} />
-              </Route>
+          {/* <Route element={<Authenticated />}> */}
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="trucks" element={<YourTrucks />} />
+            <Route path="trucks/:id" element={<TruckDetailsLayout />}>
+              <Route index element={<YourTruckDetails />} />
+              <Route path="pricing" element={<Pricing />} />
+              <Route path="photos" element={<Photos />} />
             </Route>
           </Route>
-          <Route path="*" element={<Page404 />} />
         </Route>
+        <Route path="*" element={<Page404 />} />
+        {/* </Route> */}
       </Routes>
     </BrowserRouter>
   );

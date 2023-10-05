@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
-
-import { getTruck } from "../../api";
+import trucksFinder from "../../trucksFinder";
+import AddReview from "../components/AddReview";
+import StarRating from "../components/StarRating";
+import Review from "../components/Review";
 
 export default function TruckDetails() {
   const [truckData, setTruckData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const [reviews, setReviews] = useState([]);
   const { id } = useParams();
   const location = useLocation();
 
@@ -15,8 +17,9 @@ export default function TruckDetails() {
     async function truckDetails() {
       setLoading(true);
       try {
-        const data = await getTruck(id);
-        setTruckData(data);
+        const data = await trucksFinder.get(`/${id}`);
+        setTruckData(data.data.truckInfo[0]);
+        setReviews(data.data.reviews);
       } catch (err) {
         setError(err);
       } finally {
@@ -25,6 +28,8 @@ export default function TruckDetails() {
     }
     truckDetails();
   }, [id]);
+
+  const postedReviews = reviews?.map((review) => <Review review={review} />);
 
   const search = location.state?.search || "";
 
@@ -37,22 +42,41 @@ export default function TruckDetails() {
   }
   return (
     <div className="truck-details">
-      <Link to={`..${search}`} relative="path" className="back-button">
-        &larr; <span>{`Back to ${location.state?.type || "all trucks"}`}</span>
-      </Link>
+      <div className="hire-truck-details">
+        <Link to={`..${search}`} relative="path" className="back-button">
+          &larr;{" "}
+          <span>{`Back to ${location.state?.type || "all trucks"}`}</span>
+        </Link>
 
-      <img src={truckData.imageUrl} className="truck-image" />
-      <p className="description">{truckData.description}</p>
-      <p>
-        Price/Day:
-        {truckData.price?.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
-      </p>
-      <p>Load Capacity: {truckData.load} Tonnes</p>
-      <i className="type">{truckData.type}</i>
-      <button className="hire-btn">Hire Truck</button>
+        <img src={truckData.truck_image} className="truck-image-details" />
+        <p className="description-header">Description:</p>
+        <p className="description">{truckData.truck_description}</p>
+        <p>
+          <span>Price/Day:</span>
+          {truckData.price?.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
+        </p>
+        <p>
+          <span>Capacity:</span> {truckData.tonnage} Tonnes
+        </p>
+        <i className="truck-type">
+          <span>Type:</span>
+          {truckData.type}
+        </i>
+        <div className="star-rating">
+          <span>Average Rating:</span>
+          <StarRating rating={truckData.average_rating} />
+        </div>
+        <div className="review-sub-container">
+          <span>Reviews</span>
+          {postedReviews}
+        </div>
+        <button className="hire-btn">Hire Truck</button>
+      </div>
+
+      <AddReview />
     </div>
   );
 }

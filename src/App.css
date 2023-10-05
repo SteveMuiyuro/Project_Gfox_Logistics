@@ -136,9 +136,14 @@ hr {
 }
 
 .truck-image {
-  max-width: 200px;
-  max-height: 400px;
-  width: auto;
+  max-width: 240px;
+  /* width: auto; */
+  border-radius: 0.3em;
+  /* flex: 1; */
+}
+
+.truck-image-details {
+  max-width: 100%;
   border-radius: 0.3em;
 }
 
@@ -167,6 +172,11 @@ hr {
   padding: 1em;
 }
 
+.truck-type {
+  margin-top: 1em;
+  font-style: normal;
+}
+
 .about {
   padding: 1.5em;
 }
@@ -176,11 +186,11 @@ hr {
 }
 
 .truck-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 3em;
   padding: 1em;
+  place-content: center;
 }
 
 .truck-details > img {
@@ -189,7 +199,13 @@ hr {
 }
 
 .truck-details .description {
-  text-align: center;
+  text-align: justify;
+  margin: 0;
+}
+
+.description-header {
+  font-weight: bold;
+  padding: 0;
 }
 
 .hire-btn {
@@ -203,6 +219,8 @@ hr {
   border: none;
   color: #ffedd5;
   transition: background-color 0.3ms ease-in;
+
+  align-self: center;
 }
 
 .hire-btn:hover {
@@ -658,6 +676,9 @@ button {
     width: auto;
   }
 
+  .truck-details {
+    grid-template-columns: 3fr 1fr;
+  }
   .about {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -780,4 +801,151 @@ button {
   color: #fb923c;
   margin: 0;
   font-size: small;
+}
+
+.update-truck,
+.delete-truck {
+  padding: 0.5em 1em;
+  background-color: #fb923c;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-size: small;
+  color: #161616;
+}
+
+.update-truck:hover,
+.delete-truck:hover {
+  background-color: #161616;
+  color: #fff7ed;
+}
+
+.update-truck {
+  margin-right: 2em;
+}
+
+.action-buttons {
+  margin-bottom: 2em;
+}
+
+.host-trucks {
+  display: flex;
+  flex-direction: column;
+}
+
+.hire-truck-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+  /* align-items: center; */
+  margin-top: 5em;
+}
+
+.reviews-details > input,
+.reviews-details > select {
+  height: 3em;
+  text-indent: 0.5em;
+  font-family: inherit;
+  outline: none;
+  background: transparent;
+  border-radius: 0.3em;
+  border: 1px solid #fb923c;
+}
+
+.reviews-details > textarea {
+  resize: none;
+  text-indent: 0.5em;
+  font-family: inherit;
+  outline: none;
+  background: transparent;
+  border-radius: 0.3em;
+  border: 1px solid #fb923c;
+  height: 10em;
+}
+
+.review-submit-btn {
+  background-color: #fb923c;
+  color: #fff7ed;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.review-submit-btn:hover {
+  background-color: #161616;
+  color: #fff7ed;
+}
+
+.review-header {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.star {
+  color: #fb923c;
+}
+
+.star-rating {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.trucks-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.review-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-rating > p,
+.review-time,
+.review-detail {
+  margin: 0.5em;
+}
+
+.user {
+  font-weight: bold;
+}
+
+.review-sub-container {
+  margin-top: 1.5em;
+}
+
+.rating-select {
+  color: #fb923c;
+}
+
+.reviews-form-container {
+  margin-top: -3.5em;
+}
+
+.average-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+}
+
+.rating {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.tonnage {
+  margin-bottom: -0.2em;
 }

@@ -61,8 +61,10 @@ export default function Login() {
         />
         <button disabled={status === "submitting"}>Login</button>
         <div className="registration-container">
-        <p>Don't Have an Account?</p>
-         <Link to="/" className="register-link">Register</Link>
+          <p>Don't Have an Account?</p>
+          <Link to="/" className="register-link">
+            Register
+          </Link>
         </div>
       </form>
     </div>

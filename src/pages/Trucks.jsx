@@ -1,6 +1,8 @@
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { getTrucks } from "../../api";
+import trucksFinder from "../../trucksFinder";
+import StarRating from "../components/StarRating";
 
 export default function Trucks() {
   const [trucks, setTrucks] = useState([]);
@@ -12,8 +14,8 @@ export default function Trucks() {
   useEffect(() => {
     async function fetchTrucks() {
       setLoading(true);
-      const data = await getTrucks();
-      setTrucks(data);
+      const data = await trucksFinder.get("/");
+      setTrucks(data.data.trucks);
       setLoading(false);
     }
     fetchTrucks();
@@ -29,9 +31,9 @@ export default function Trucks() {
         to={truck.id}
         state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
       >
-        <img src={truck.imageUrl} className="truck-image" />
+        <img src={truck.truck_image} className="truck-image" />
         <div>
-          <h3>{truck.name}</h3>
+          <h3>{truck.truck_name}</h3>
           <p>
             Price/Day:{" "}
             {truck.price.toLocaleString("en-US", {
@@ -39,8 +41,12 @@ export default function Trucks() {
               currency: "USD",
             })}
           </p>
-          <p>Tonnage: {truck.load}</p>
-          <i className="type">{truck.type}</i>
+          <p className="tonnage">Tonnage: {truck.tonnage}</p>
+          <div className="trucks-rating">
+            <span>Rating:</span>
+            <StarRating rating={truck.average_rating} />
+          </div>
+          <i className="type">View {truck.type}</i>
         </div>
       </Link>
     </div>

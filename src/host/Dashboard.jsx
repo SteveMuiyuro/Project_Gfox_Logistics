@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getHostTrucks } from "../../api";
+import trucksFinder from "../../trucksFinder";
+import StarRating from "../components/StarRating";
 
 export default function Dashboard() {
   const [trucks, setTrucks] = useState([]);
@@ -9,8 +11,8 @@ export default function Dashboard() {
     async function fetchTrucks() {
       setLoading(true);
       try {
-        const data = await getHostTrucks();
-        setTrucks(data);
+        const data = await trucksFinder.get("/");
+        setTrucks(data.data.trucks);
       } catch (err) {
         setError(err);
       } finally {
@@ -31,25 +33,19 @@ export default function Dashboard() {
   const elements = trucks?.map((truck) => (
     <div className="dashboard-container" key={truck.id}>
       <div>
-        <h2>{truck.name}</h2>
-        <img src={truck.imageUrl} className="dashboard-image" />
+        <h2>{truck.truck_name}</h2>
+        <img src={truck.truck_image} className="dashboard-image" />
       </div>
 
       <div>
-        <h3>Reviews</h3>
-        {truck.reviews?.map((review) => (
-          <p key={review}>{review}</p>
-        ))}
+        <p>Load Capacity: {truck.tonnage}</p>
       </div>
 
       <div>
-        <h3>Income Generated:</h3>
-        <p className="price">
-          {truck.TotalIncome.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
-          })}
-        </p>
+        <h3>Description:</h3>
+        <p>{truck.truck_description}</p>
+        <span>Average Rating:</span>
+        <StarRating rating={truck.average_rating} />
       </div>
     </div>
   ));

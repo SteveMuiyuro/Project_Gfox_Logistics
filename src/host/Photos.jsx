@@ -6,7 +6,7 @@ export default function Photos() {
 
   return truck ? (
     <div className="image-container">
-      <img src={truck.imageUrl} className="image" />
+      <img src={truck.truck_image} className="image" />
     </div>
   ) : (
     <p>Loading...</p>

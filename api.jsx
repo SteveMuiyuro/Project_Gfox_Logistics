@@ -25,21 +25,6 @@ const db = getFirestore(app);
 
 const trucksCollection = collection(db, "trucks");
 
-export async function getTrucks() {
-  const snapshot = await getDocs(trucksCollection);
-  const trucks = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-  return trucks;
-}
-
-export async function getTruck(id) {
-  const truckRef = doc(db, "trucks", id);
-  const snapshot = await getDoc(truckRef);
-  return {
-    ...snapshot.data(),
-    id: snapshot.id,
-  };
-}
-
 export async function getHostTrucks() {
   const q = query(trucksCollection, where("hostId", "==", "123"));
   const snapshot = await getDocs(q);

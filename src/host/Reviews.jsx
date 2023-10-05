@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { getHostTrucks } from "../../api";
+import trucksFinder from "../../trucksFinder";
 
 export default function Reviews() {
   const [trucks, setTrucks] = useState([]);

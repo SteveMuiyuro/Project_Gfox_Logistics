@@ -1,34 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getHostTrucks } from "../../api";
+import trucksFinder from "../../trucksFinder";
 
 export default function YourTrucks() {
   const [trucks, setTrucks] = useState();
 
   useEffect(() => {
     async function loadTrucks() {
-      const data = await getHostTrucks();
-      setTrucks(data);
+      const data = await trucksFinder.get("/");
+      setTrucks(data.data.trucks);
     }
     loadTrucks();
   }, []);
 
   const trucksElements = trucks?.map((truck) => (
-    <Link to={truck.id} key={truck.id}>
-      <div className="own-truck" key={truck.id}>
-        <img src={truck.imageUrl} className="truck-image" />
-        <div>
-          <h2>{truck.name}</h2>
-          <p>
-            {truck.price.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
-            /Day
-          </p>
+    <div classname="host-trucks">
+      <Link to={truck.id} key={truck.id}>
+        <div className="own-truck" key={truck.id}>
+          <img src={truck.truck_image} className="truck-image" />
+          <div>
+            <h2>{truck.truck_name}</h2>
+            <p>{truck.type}</p>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   ));
 
   return (
