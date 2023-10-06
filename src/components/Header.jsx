@@ -27,7 +27,7 @@ export default function Header() {
             className="header-elements"
             style={({ isActive }) => (isActive ? isActiveStyles : null)}
           >
-            Post a Truck
+            Dashboard
           </NavLink>
           <NavLink
             to="/about"
