@@ -17,9 +17,3 @@ Hooks:
 
 - useOutletContext
 - useSearchParams
-
-When prompted to login?
-use the credentials below:
-
-- `Email: steve@gfox.com`
-- `Password: p123`
